@@ -1,14 +1,14 @@
 .card {
-    border: 1px solid #fe0000;
+    border: 1px solid #ccc;
     border-radius: 5px;
     padding: 16px;
     margin: 16px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    width: 300px;
+    width: 200px;
 }
 
 .card-image {
-    width: 300px;
+    width: 200px;
     height: auto;
     border-radius: 5px;
 }

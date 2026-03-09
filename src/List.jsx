@@ -13,7 +13,7 @@ function List(){
         <input type="text" value={text} onChange={(e)=>{ setText(e.target.value) }} />
         <button onClick={addNewElementToList}>Add</button>
         <ul>
-           {arr.map((e)=><li>{e}</li>)}
+           {arr.map((e , i)=><li key={i}>{e}</li>)}
         </ul>
 
     </div>
