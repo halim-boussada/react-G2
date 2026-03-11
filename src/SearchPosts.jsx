@@ -1,10 +1,14 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
+import { useDebounce } from "./Hooks/debounce";
 
 function SearchPosts(){
     const [query , setQuery] = useState("")
-    const [debounce , setDebounce] = useState("")
     const [posts , setPosts] = useState([])
+    const debounce = useDebounce(query , 1000)
+
+    
+
     useEffect(()=>{
         async function getPosts() {
             const {data} = await axios.get("https://dummyjson.com/posts/search?q=" + debounce)
@@ -13,12 +17,7 @@ function SearchPosts(){
         getPosts()
     } , [debounce])
 
-    useEffect(()=>{
-      var timer = setTimeout(()=>{
-        setDebounce(query)
-      } , 500)
-      return ()=> clearTimeout(timer)
-    } , [query])
+  
 
     return <div>
         <input type="text" name="" id="" onChange={(e)=>{ setQuery(e.target.value)}}/>

@@ -30,3 +30,11 @@ function Sidebare() {
 }
 
 export default Sidebare;
+
+
+
+// create 3 routes in your app 
+// "/" this would take you to login page 
+// "/posts" this would display list of posts
+// "/posts/:id" post details 
+

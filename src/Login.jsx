@@ -1,11 +1,13 @@
 import axios from "axios";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { useTrim } from "./Hooks/trim";
 function Login() {
   const navigate = useNavigate();
   const [username, setUsername] = useState("");
   const [password, setpassword] = useState("");
   const [erros , setErrors] = useState([])
+   
 
   async function login() {
     if(!validate()){
@@ -14,7 +16,7 @@ function Login() {
     try {
          const { data } = await axios.post("https://dummyjson.com/auth/login" , {
         username : username ,
-        password : password
+        password : useTrim(password)
     })
     localStorage.setItem("token" , data.accessToken)
     navigate("/dashboard/users")

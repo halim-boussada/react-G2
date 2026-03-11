@@ -1,18 +1,12 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
 import "./SearchUsers.css";
+import { useDebounce } from "./Hooks/debounce";
 
 function SearchUsers() {
   const [query, setQuery] = useState("");
-  const [debouncequery, setDebounceQuery] = useState("");
   const [users, setUsers] = useState([]);
-
-  useEffect(()=>{
-    var timer = setTimeout(()=>{
-        setDebounceQuery(query)
-    } , 1000)
-    return () => clearTimeout(timer)
-  } , [query])
+  const debouncequery = useDebounce(query , 500)
 
   useEffect(() => {
       async function getUsers() {
